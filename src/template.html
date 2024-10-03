@@ -5,5 +5,355 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Webpack Template</title>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <div class="brand"><i class="ti ti-paw-filled"></i> Purrfect Weather</div>
+      <nav>
+        <ul>
+          <li>Today</li>
+          <li>Hourly</li>
+          <li>Day</li>
+        </ul>
+      </nav>
+
+      <div class="search-location">
+        <span class="location">Banjar, Kalimantan, Indonesia</span>
+        <input type="search" placeholder="Address or location" />
+      </div>
+    </header>
+
+    <main>
+      <div class="current-weather card">
+        <div class="head">
+          <h1>Current Weather</h1>
+          <span class="time">8:00 AM</span>
+        </div>
+
+        <div class="content">
+          <div class="weather">
+            <img
+              src="weather-icons/color/clear-day.svg"
+              alt=""
+              class="weather-icon large"
+            />
+            <span class="temp large">
+              <span class="degree">37</span>
+              <span class="scale">&deg;C</span></span
+            >
+          </div>
+
+          <div class="desc large">
+            <h2>Clear</h2>
+            <p>
+              Similar temperatures continuing with a chance of rain multiple
+              days.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hourly-weather card">
+        <div class="head">
+          <h1>Hourly Weather</h1>
+        </div>
+
+        <div class="content">
+          <div class="weather-data">
+            <span class="time">2 AM</span>
+            <img
+              src="weather-icons/color/fog.svg"
+              alt=""
+              class="weather-icon medium"
+            />
+            <span class="temp medium">
+              <span class="degree">24</span>
+              <span class="scale">&deg;C</span></span
+            >
+            <div class="humidity">
+              <i class="ti ti-droplet-half-filled"></i> <span>80%</span>
+            </div>
+          </div>
+          <div class="weather-data">
+            <span class="time">2 AM</span>
+            <img
+              src="weather-icons/color/fog.svg"
+              alt=""
+              class="weather-icon medium"
+            />
+            <span class="temp medium">24<span class="scale">&deg;C</span></span>
+            <div class="humidity">
+              <i class="ti ti-droplet-half-filled"></i> <span>80%</span>
+            </div>
+          </div>
+          <div class="weather-data">
+            <span class="time">2 AM</span>
+            <img
+              src="weather-icons/color/fog.svg"
+              alt=""
+              class="weather-icon medium"
+            />
+            <span class="temp medium">24<span class="scale">&deg;C</span></span>
+            <div class="humidity">
+              <i class="ti ti-droplet-half-filled"></i> <span>80%</span>
+            </div>
+          </div>
+          <div class="weather-data">
+            <span class="time">2 AM</span>
+            <img
+              src="weather-icons/color/fog.svg"
+              alt=""
+              class="weather-icon medium"
+            />
+            <span class="temp medium">24<span class="scale">&deg;C</span></span>
+            <div class="humidity">
+              <i class="ti ti-droplet-half-filled"></i> <span>80%</span>
+            </div>
+          </div>
+          <div class="weather-data">
+            <span class="time">2 AM</span>
+            <img
+              src="weather-icons/color/fog.svg"
+              alt=""
+              class="weather-icon medium"
+            />
+            <span class="temp medium">24<span class="scale">&deg;C</span></span>
+            <div class="humidity">
+              <i class="ti ti-droplet-half-filled"></i> <span>80%</span>
+            </div>
+          </div>
+          <div class="weather-data">
+            <span class="time">2 AM</span>
+            <img
+              src="weather-icons/color/fog.svg"
+              alt=""
+              class="weather-icon medium"
+            />
+            <span class="temp medium">24<span class="scale">&deg;C</span></span>
+            <div class="humidity">
+              <i class="ti ti-droplet-half-filled"></i> <span>80%</span>
+            </div>
+          </div>
+          <div class="weather-data">
+            <span class="time">2 AM</span>
+            <img
+              src="weather-icons/color/fog.svg"
+              alt=""
+              class="weather-icon medium"
+            />
+            <span class="temp medium">24<span class="scale">&deg;C</span></span>
+            <div class="humidity">
+              <i class="ti ti-droplet-half-filled"></i> <span>80%</span>
+            </div>
+          </div>
+          <div class="weather-data">
+            <span class="time">2 AM</span>
+            <img
+              src="weather-icons/color/fog.svg"
+              alt=""
+              class="weather-icon medium"
+            />
+            <span class="temp medium">24<span class="scale">&deg;C</span></span>
+            <div class="humidity">
+              <i class="ti ti-droplet-half-filled"></i> <span>80%</span>
+            </div>
+          </div>
+          <div class="weather-data">
+            <span class="time">2 AM</span>
+            <img
+              src="weather-icons/color/fog.svg"
+              alt=""
+              class="weather-icon medium"
+            />
+            <span class="temp medium">24<span class="scale">&deg;C</span></span>
+            <div class="humidity">
+              <i class="ti ti-droplet-half-filled"></i> <span>80%</span>
+            </div>
+          </div>
+          <div class="weather-data">
+            <span class="time">2 AM</span>
+            <img
+              src="weather-icons/color/fog.svg"
+              alt=""
+              class="weather-icon medium"
+            />
+            <span class="temp medium">24<span class="scale">&deg;C</span></span>
+            <div class="humidity">
+              <i class="ti ti-droplet-half-filled"></i> <span>80%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="daily-weather card">
+        <div class="head">
+          <h1>15-Day Weather Forecast</h1>
+        </div>
+
+        <div class="content">
+          <div class="weather-data">
+            <div class="daytime">
+              <span class="day">Today</span>
+              <span class="date">10/10</span>
+            </div>
+
+            <div class="weather">
+              <img
+                src="weather-icons/color/rain.svg"
+                alt=""
+                class="weather-icon medium"
+              />
+              <span class="temp medium">
+                <span class="degree">25</span>
+                <span class="scale">&deg;C</span>
+              </span>
+            </div>
+
+            <div class="desc medium">
+              <h2>Rain, Partially cloudy</h2>
+              <p>Partly cloudy throughout the day with storms possible.</p>
+            </div>
+
+            <div class="humidity">
+              <i class="ti ti-droplet-half-filled"></i> <span>80%</span>
+            </div>
+          </div>
+          <div class="weather-data">
+            <div class="daytime">
+              <span class="day">Today</span>
+              <span class="date">10/10</span>
+            </div>
+
+            <div class="weather">
+              <img
+                src="weather-icons/color/rain.svg"
+                alt=""
+                class="weather-icon medium"
+              />
+              <span class="temp medium">
+                <span class="degree">25</span>
+                <span class="scale">&deg;C</span>
+              </span>
+            </div>
+
+            <div class="desc medium">
+              <h2>Rain, Partially cloudy</h2>
+              <p>Partly cloudy throughout the day with storms possible.</p>
+            </div>
+
+            <div class="humidity">
+              <i class="ti ti-droplet-half-filled"></i> <span>80%</span>
+            </div>
+          </div>
+          <div class="weather-data">
+            <div class="daytime">
+              <span class="day">Today</span>
+              <span class="date">10/10</span>
+            </div>
+
+            <div class="weather">
+              <img
+                src="weather-icons/color/rain.svg"
+                alt=""
+                class="weather-icon medium"
+              />
+              <span class="temp medium">
+                <span class="degree">25</span>
+                <span class="scale">&deg;C</span>
+              </span>
+            </div>
+
+            <div class="desc medium">
+              <h2>Rain, Partially cloudy</h2>
+              <p>Partly cloudy throughout the day with storms possible.</p>
+            </div>
+
+            <div class="humidity">
+              <i class="ti ti-droplet-half-filled"></i> <span>80%</span>
+            </div>
+          </div>
+          <div class="weather-data">
+            <div class="daytime">
+              <span class="day">Today</span>
+              <span class="date">10/10</span>
+            </div>
+
+            <div class="weather">
+              <img
+                src="weather-icons/color/rain.svg"
+                alt=""
+                class="weather-icon medium"
+              />
+              <span class="temp medium">
+                <span class="degree">25</span>
+                <span class="scale">&deg;C</span>
+              </span>
+            </div>
+
+            <div class="desc medium">
+              <h2>Rain, Partially cloudy</h2>
+              <p>Partly cloudy throughout the day with storms possible.</p>
+            </div>
+
+            <div class="humidity">
+              <i class="ti ti-droplet-half-filled"></i> <span>80%</span>
+            </div>
+          </div>
+          <div class="weather-data">
+            <div class="daytime">
+              <span class="day">Today</span>
+              <span class="date">10/10</span>
+            </div>
+
+            <div class="weather">
+              <img
+                src="weather-icons/color/rain.svg"
+                alt=""
+                class="weather-icon medium"
+              />
+              <span class="temp medium">
+                <span class="degree">25</span>
+                <span class="scale">&deg;C</span>
+              </span>
+            </div>
+
+            <div class="desc medium">
+              <h2>Rain, Partially cloudy</h2>
+              <p>Partly cloudy throughout the day with storms possible.</p>
+            </div>
+
+            <div class="humidity">
+              <i class="ti ti-droplet-half-filled"></i> <span>80%</span>
+            </div>
+          </div>
+          <div class="weather-data">
+            <div class="daytime">
+              <span class="day">Today</span>
+              <span class="date">10/10</span>
+            </div>
+
+            <div class="weather">
+              <img
+                src="weather-icons/color/rain.svg"
+                alt=""
+                class="weather-icon medium"
+              />
+              <span class="temp medium">
+                <span class="degree">25</span>
+                <span class="scale">&deg;C</span>
+              </span>
+            </div>
+
+            <div class="desc medium">
+              <h2>Rain, Partially cloudy</h2>
+              <p>Partly cloudy throughout the day with storms possible.</p>
+            </div>
+
+            <div class="humidity">
+              <i class="ti ti-droplet-half-filled"></i> <span>80%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
 </html>
