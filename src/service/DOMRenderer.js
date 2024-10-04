@@ -90,4 +90,9 @@ export default class DOMRenderer {
     // eslint-disable-next-line no-undef
     return document.querySelector(selector);
   }
+
+  static getElementBySelectorAll(selector) {
+    // eslint-disable-next-line no-undef
+    return document.querySelectorAll(selector);
+  }
 }

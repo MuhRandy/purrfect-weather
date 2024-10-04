@@ -39,21 +39,10 @@ header {
   color: var(--secondary-text);
   font-weight: bold;
   padding: 10px;
-  position: relative;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-nav {
-  position: absolute;
-  right: 50%;
-  transform: translateX(50%);
-  -webkit-transform: translateX(50%);
-  -moz-transform: translateX(50%);
-  -ms-transform: translateX(50%);
-  -o-transform: translateX(50%);
 }
 
 header ul {
@@ -69,24 +58,52 @@ header ul {
   align-items: center;
 }
 
+div:has(#scale, .search-location) {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding-left: 2px;
+  background-color: var(--secondary);
+  overflow: clip;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.scale-select::after {
+  content: "|";
+}
+
+#scale {
+  border: none;
+  background: inherit;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  font-weight: bold;
+}
+
 .search-location {
   display: flex;
-  gap: 10px;
+  gap: 5px;
   align-items: center;
   background-color: var(--secondary);
-  padding-left: 10px;
-  border-radius: 20px;
+  /* padding-left: 10px; */
+  /* border-radius: 20px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
-  -o-border-radius: 20px;
+  -o-border-radius: 20px; */
 
   input {
     border: none;
     padding: 5px 16px;
     font-size: inherit;
     font-family: inherit;
-    border-radius: 20px;
+    /* border-radius: 20px; */
   }
 
   input:focus {

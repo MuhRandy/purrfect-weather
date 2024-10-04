@@ -179,12 +179,6 @@ export default class DOMFactory {
     }
   }
 
-  static addEventListener(element, event, handler) {
-    if (element) {
-      element.addEventListener(event, handler);
-    }
-  }
-
   static createLoading() {
     return this.#createElement("div", {
       className: "loading",

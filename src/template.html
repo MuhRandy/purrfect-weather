@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Webpack Template</title>
+    <title>Purrfect Weather</title>
 
     <link
       rel="stylesheet"
@@ -13,17 +13,18 @@
   <body>
     <header>
       <div class="brand"><i class="ti ti-paw-filled"></i> Purrfect Weather</div>
-      <nav>
-        <ul>
-          <li>Today</li>
-          <li>Hourly</li>
-          <li>Day</li>
-        </ul>
-      </nav>
 
-      <div class="search-location">
-        <span class="location">Banjar, Kalimantan, Indonesia</span>
-        <input type="search" placeholder="Address or location" />
+      <div>
+        <div class="scale-select">
+          <select id="scale">
+            <option value="Celsius" selected>Celsius (&deg;C)</option>
+            <option value="Fahrenheit">Fahrenheit (&deg;F)</option>
+          </select>
+        </div>
+        <div class="search-location">
+          <span class="location"></span>
+          <input type="search" placeholder="Address or location" autofocus />
+        </div>
       </div>
     </header>
 
