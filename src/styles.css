@@ -98,14 +98,20 @@ main {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 20px 30vw;
+  padding: 20px 0;
 }
 
 .card {
   background-color: #fff;
   border: 1px solid var(--primary-text);
   padding: 10px;
+  margin: 0 auto;
+  max-width: 600px;
   border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 
 .card .head {
@@ -125,8 +131,8 @@ main {
   margin-top: 10px;
 
   .weather-data {
-    display: flex;
-    align-items: center;
+    display: grid;
+    place-items: center;
   }
 
   .weather {
@@ -237,8 +243,8 @@ main {
   }
 
   .weather-data {
-    flex-direction: column;
-    gap: 5px;
+    grid-template-rows: repeat(5, 1fr);
+    min-width: 140px;
   }
 
   .weather {
@@ -256,6 +262,8 @@ main {
   }
 
   .weather-data {
+    grid-template-columns: repeat(5, 1fr);
+
     gap: 15px;
   }
 
@@ -273,5 +281,9 @@ main {
       color: var(--tertiary-text);
       font-size: 1.4rem;
     }
+  }
+
+  .desc {
+    grid-column: span 2;
   }
 }
