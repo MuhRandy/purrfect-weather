@@ -17,6 +17,7 @@ export default class DailyForecast extends Forecast {
     this.description = description;
     this.sunrise = sunrise;
     this.sunset = sunset;
+    this.datetime = new Date(datetime);
     this.description = description;
   }
 }
