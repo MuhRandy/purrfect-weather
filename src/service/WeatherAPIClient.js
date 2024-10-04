@@ -84,8 +84,6 @@ export default class WeatherAPIClient {
         sunset,
       } = dailyForecastData;
 
-      console.log(icon);
-
       const dailyForecast = new DailyForecast(
         datetime,
         conditions,

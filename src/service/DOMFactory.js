@@ -131,7 +131,6 @@ export default class DOMFactory {
     return desc;
   }
 
-  // Method to create an element with optional classes and attributes
   static #createElement(tagName, options = {}) {
     // eslint-disable-next-line no-undef
     const element = document.createElement(tagName);
@@ -141,7 +140,6 @@ export default class DOMFactory {
     if (options.textContent) element.textContent = options.textContent;
     if (options.innerHTML) element.innerHTML = options.innerHTML;
 
-    // Add attributes
     if (options.attributes) {
       Object.keys(options.attributes).forEach((attr) => {
         element.setAttribute(attr, options.attributes[attr]);
@@ -151,21 +149,19 @@ export default class DOMFactory {
     return element;
   }
 
-  // Method to append a child element to a parent
   static appendChild(parent, child) {
     if (parent && child) {
       parent.appendChild(child);
     }
   }
 
-  // Method to remove an element
+  // eslint-disable-next-line no-unused-private-class-members
   static #removeElement(element) {
     if (element && element.parentNode) {
       element.parentNode.removeChild(element);
     }
   }
 
-  // Method to update text content
   static updateTextContent(element, newText) {
     if (element) {
       element.textContent = newText;
@@ -176,15 +172,14 @@ export default class DOMFactory {
     this.updateTextContent(element, "");
   }
 
-  // Method to show or hide an element
+  // eslint-disable-next-line no-unused-private-class-members
   static #toggleVisibility(element, isVisible) {
     if (element) {
       element.style.display = isVisible ? "block" : "none";
     }
   }
 
-  // Method to attach an event listener to an element
-  static #addEventListener(element, event, handler) {
+  static addEventListener(element, event, handler) {
     if (element) {
       element.addEventListener(event, handler);
     }

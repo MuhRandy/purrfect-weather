@@ -3,7 +3,7 @@ import { format } from "date-fns";
 
 export default class DOMRenderer {
   static renderLocation(location) {
-    this.#getElementBySelector(".location").textContent = location;
+    this.getElementBySelector(".location").textContent = location;
   }
 
   static renderCurrentWeather(
@@ -14,8 +14,8 @@ export default class DOMRenderer {
     degree,
     scale = "Celsius",
   ) {
-    const time = this.#getElementBySelector(".time");
-    const currentWeatherContent = this.#getElementBySelector(
+    const time = this.getElementBySelector(".time");
+    const currentWeatherContent = this.getElementBySelector(
       ".current-weather.card .content",
     );
     const weather = DOMFactory.createWeather("large", icon, degree, scale);
@@ -31,7 +31,7 @@ export default class DOMRenderer {
   }
 
   static renderHourlyWeather(hourlyWeather, scale = "Celsius") {
-    const hourlyWeatherContent = this.#getElementBySelector(
+    const hourlyWeatherContent = this.getElementBySelector(
       ".hourly-weather.card .content",
     );
 
@@ -45,7 +45,7 @@ export default class DOMRenderer {
   }
 
   static renderDailyWeather(dailyWeather, scale = "Celsius") {
-    const dailyWeatherContent = this.#getElementBySelector(
+    const dailyWeatherContent = this.getElementBySelector(
       ".daily-weather.card .content",
     );
 
@@ -60,24 +60,24 @@ export default class DOMRenderer {
 
   static renderLoadingCurrentWeather() {
     this.#renderLoading(
-      this.#getElementBySelector(".current-weather.card .content"),
+      this.getElementBySelector(".current-weather.card .content"),
     );
-    this.#renderLoading(this.#getElementBySelector(".time"));
+    this.#renderLoading(this.getElementBySelector(".time"));
   }
 
   static renderLoadingLocation() {
-    this.#renderLoading(this.#getElementBySelector(".location"));
+    this.#renderLoading(this.getElementBySelector(".location"));
   }
 
   static renderLoadingHourlyWeather() {
     this.#renderLoading(
-      this.#getElementBySelector(".hourly-weather.card .content"),
+      this.getElementBySelector(".hourly-weather.card .content"),
     );
   }
 
   static renderLoadingDailyWeather() {
     this.#renderLoading(
-      this.#getElementBySelector(".daily-weather.card .content"),
+      this.getElementBySelector(".daily-weather.card .content"),
     );
   }
 
@@ -86,7 +86,7 @@ export default class DOMRenderer {
     DOMFactory.appendChild(element, DOMFactory.createLoading());
   }
 
-  static #getElementBySelector(selector) {
+  static getElementBySelector(selector) {
     // eslint-disable-next-line no-undef
     return document.querySelector(selector);
   }
