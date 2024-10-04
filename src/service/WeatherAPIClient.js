@@ -12,8 +12,13 @@ export default class WeatherAPIClient {
   static async getDataByLocation(location) {
     try {
       const request = this.#createRequest(
-        `${this.#URL + location}?key=${this.#API_KEY}`,
+        `${this.#URL + location}?unitGroup=metric&key=${this.#API_KEY}&contentType=json`,
       );
+
+      DOMRenderer.renderLoadingLocation();
+      DOMRenderer.renderLoadingCurrentWeather();
+      DOMRenderer.renderLoadingHourlyWeather();
+      DOMRenderer.renderLoadingDailyWeather();
 
       // eslint-disable-next-line no-undef
       const response = await fetch(request);
@@ -27,16 +32,21 @@ export default class WeatherAPIClient {
       const currentWeather = this.#getCurrentWeatherData(json);
       const dailyForecast = this.#getDailyForecastData(json);
 
-      DOMRenderer.renderLocation(currentWeather.location);
-      DOMRenderer.renderCurrentWeather(
-        currentWeather.conditions,
-        currentWeather.description,
-        currentWeather.icon,
-        currentWeather.temp,
-        "Fahrenheit",
-      );
       Logger.log(currentWeather);
       Logger.log(dailyForecast);
+
+      const { datetime, conditions, description, icon, temp } = currentWeather;
+
+      DOMRenderer.renderLocation(currentWeather.location);
+      DOMRenderer.renderCurrentWeather(
+        datetime,
+        conditions,
+        description,
+        icon,
+        temp,
+      );
+      DOMRenderer.renderHourlyWeather(dailyForecast[0].hoursWeatherData);
+      DOMRenderer.renderDailyWeather(dailyForecast);
 
       return currentWeather;
     } catch (error) {
@@ -73,6 +83,8 @@ export default class WeatherAPIClient {
         sunrise,
         sunset,
       } = dailyForecastData;
+
+      console.log(icon);
 
       const dailyForecast = new DailyForecast(
         datetime,

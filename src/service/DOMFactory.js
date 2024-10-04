@@ -1,13 +1,43 @@
-import rain from "../weather-icons/color/rain.svg";
+import { format } from "date-fns";
 import IMGHandler from "./IMGHandler";
 
 export default class DOMFactory {
-  static createWeather(icon, degree, scale = "Celsius") {
+  static createWeatherData(index, forecastData, scale = "Celsius") {
+    const weatherData = this.#createElement("div", {
+      className: "weather-data",
+    });
+
+    const { datetime, icon, temp, conditions, description, humidity } =
+      forecastData;
+
+    const time = this.#createElement("span", {
+      className: "time",
+      textContent: format(datetime, "h aa"),
+    });
+    const dayTime = this.#createDayTime(datetime, index);
+    const weather = this.createWeather("medium", icon, temp, scale);
+    const desc = this.createDesc(
+      conditions,
+      description,
+      description ? "medium" : "small",
+    );
+    const humidityContainer = this.#createHumidity(humidity);
+
+    description && this.appendChild(weatherData, dayTime);
+    !description && this.appendChild(weatherData, time);
+    this.appendChild(weatherData, weather);
+    this.appendChild(weatherData, desc);
+    this.appendChild(weatherData, humidityContainer);
+
+    return weatherData;
+  }
+
+  static createWeather(size, icon, degree, scale = "Celsius") {
     const weather = this.#createElement("div", {
       className: "weather",
     });
-    const weatherIcon = this.#createWeatherIcon("large", icon);
-    const temp = this.#createTemp("large", degree, scale);
+    const weatherIcon = this.#createWeatherIcon(size, icon);
+    const temp = this.#createTemp(size, degree, scale);
 
     this.appendChild(weather, weatherIcon);
     this.appendChild(weather, temp);
@@ -17,6 +47,9 @@ export default class DOMFactory {
 
   static #createWeatherIcon(size, icon) {
     const imgData = IMGHandler.getWeatherIcon(icon);
+
+    if (!imgData) throw new Error(`There no such icon with code ${icon}`);
+
     return this.#createElement("img", {
       className: `weather-icon ${size}`,
       attributes: {
@@ -45,6 +78,42 @@ export default class DOMFactory {
     return temp;
   }
 
+  static #createDayTime(datetime, index) {
+    const dayTime = this.#createElement("div", {
+      className: "daytime",
+    });
+    const day = this.#createElement("span", {
+      className: "day",
+      textContent: index === 0 ? "Today" : format(datetime, "EEE"),
+    });
+    const date = this.#createElement("span", {
+      className: "date",
+      textContent: format(datetime, "dd/MM"),
+    });
+
+    this.appendChild(dayTime, day);
+    this.appendChild(dayTime, date);
+
+    return dayTime;
+  }
+
+  static #createHumidity(humidity) {
+    const div = this.#createElement("div", {
+      className: "humidity",
+    });
+    const dropletIcon = this.#createElement("i", {
+      className: "ti ti-droplet-half-filled",
+    });
+    const humidityPercentage = this.#createElement("span", {
+      textContent: Math.round(humidity) + "%",
+    });
+
+    this.appendChild(div, dropletIcon);
+    this.appendChild(div, humidityPercentage);
+
+    return div;
+  }
+
   static createDesc(title, content, size) {
     const desc = this.#createElement("div", {
       className: `desc ${size}`,
@@ -57,7 +126,7 @@ export default class DOMFactory {
     });
 
     this.appendChild(desc, h2);
-    this.appendChild(desc, p);
+    content && this.appendChild(desc, p);
 
     return desc;
   }
@@ -97,14 +166,14 @@ export default class DOMFactory {
   }
 
   // Method to update text content
-  static #updateTextContent(element, newText) {
+  static updateTextContent(element, newText) {
     if (element) {
       element.textContent = newText;
     }
   }
 
   static clearTextContent(element) {
-    this.#updateTextContent(element, "");
+    this.updateTextContent(element, "");
   }
 
   // Method to show or hide an element
@@ -119,5 +188,12 @@ export default class DOMFactory {
     if (element) {
       element.addEventListener(event, handler);
     }
+  }
+
+  static createLoading() {
+    return this.#createElement("div", {
+      className: "loading",
+      textContent: "Loading...",
+    });
   }
 }

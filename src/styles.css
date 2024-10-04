@@ -27,6 +27,13 @@ body {
   color: var(--primary-text);
 }
 
+.loading {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-content: center;
+}
+
 header {
   background-color: var(--primary);
   color: var(--secondary-text);
@@ -148,6 +155,17 @@ main {
         font-size: 1.8rem;
       }
     }
+
+    &.small {
+      h2 {
+        font-size: 1.8rem;
+        text-align: center;
+      }
+
+      p {
+        font-size: 1.6rem;
+      }
+    }
   }
 }
 
@@ -221,6 +239,10 @@ main {
   .weather-data {
     flex-direction: column;
     gap: 5px;
+  }
+
+  .weather {
+    display: contents;
   }
 
   .time {
